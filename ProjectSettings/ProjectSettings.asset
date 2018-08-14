@@ -648,9 +648,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: a7ffa30d-9d2d-410c-b0d8-5ddc6744e510
+  projectName: SimpleMultiplayer
+  organizationId: paul-sinnett-345907
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
