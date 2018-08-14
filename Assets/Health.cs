@@ -9,6 +9,7 @@ public class Health : NetworkBehaviour {
 	public const int maxHealth = 100;
 	[SyncVar(hook = "OnChangeHealth")]
 	public int currentHealth = 100;
+	public bool destroyOnDeath = false;
 	public RectTransform healthBar;
 	public void TakeDamage(int amount)
 	{
@@ -19,9 +20,16 @@ public class Health : NetworkBehaviour {
 		currentHealth -= amount;
 		if (currentHealth <= 0)
 		{
-			currentHealth = maxHealth;
-			// called on the Server, but invoked on the Clients
-			RpcRespawn();
+			if (destroyOnDeath)
+			{
+				Destroy(gameObject);
+			}
+			else
+			{
+				currentHealth = maxHealth;
+				// called on the Server, but invoked on the Clients
+				RpcRespawn();
+			}
 		}
 	}
 	void OnChangeHealth (int health)
